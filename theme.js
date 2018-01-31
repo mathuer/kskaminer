@@ -12,18 +12,20 @@ Bliss.Theme.HandleScroll = function() {
 };
 
 
-Bliss.Theme.ScrollPage = function() {
+Bliss.Theme.HeaderScroll = function() {
 	$(window).scroll(function(){
 		var scroll = $(window).scrollTop();
 		if(scroll >= 50){
-			$("#top-header").addClass("header-scroll");
+			$("#header").addClass("header-scroll");
 		}else{
-			$("#header").removeClass("header-scroll")
+			$("#header").removeClass("header-scroll");
 		}
 	});
-}
+};
+
 
 // Create an instace of your function.
 $(function($) {
 	Bliss.Theme.HandleScroll();
+	Bliss.Theme.HeaderScroll();
 });
