@@ -165,7 +165,7 @@ ul, li, body, fieldset, h1, h2, h3, h4, h5, p, td {
 /* Body */
 
 body {
-	font-family: 'Open Sans';
+	font-family: 'Raleway', sans-serif;
 	color: $text-color;
 	background-color: #fff;
 	@include font-smoothing(on);
@@ -193,6 +193,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	margin-bottom: 15px;
 	color: $title-color;
+	font-family: 'Lobster';
 }
 
 
@@ -221,9 +222,9 @@ a {
 
 /* Buttons */
 strong a {
-	background-color: $primary-color;
+	background-color: transparent;
 	background-image: none;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     display: inline-block;
     line-height: 20px;
@@ -239,11 +240,39 @@ strong a {
     text-shadow: none;
     @include border-radius(3px);
     @include transition(all 0.5s ease);
+	border: 1px solid $primary-color;
     &:hover {
 	    background: darken( $primary-color, 10% );
 	    color: #fff;
     }
 }
+
+strong a {
+	background-color: transparent;
+	background-image: none;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 20px;
+    margin: 2px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border: none;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 12px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    text-shadow: none;
+    @include border-radius(3px);
+    @include transition(all 0.5s ease);
+	border: 1px solid $primary-color;
+    &:hover {
+	    background: darken( $primary-color, 10% );
+	    color: #fff;
+    }
+}
+
 
 /* --------------------------------------------------------------------------------------------- */
 /* Margin and padding */
@@ -440,7 +469,6 @@ strong a {
 
 #top-header {
 	position: relative;
-	border-bottom: 1px solid #eee;
 	ul.currencies{
 		margin:0 10px;
 		float:right;
@@ -486,7 +514,7 @@ strong a {
 			z-index: 5!important;
 			background-color: #fff!important;
 			.navbar-header a img {
-				height: 55px!important;
+				height: 60px!important;
 			}
 		}
 	}
@@ -495,7 +523,6 @@ strong a {
 	
   .navbar-header {
 	 display: inline-block;
-	  max-width: 50%;
 	  @media(min-width:768px){
 	  max-width: 100%;
 	  }
@@ -511,12 +538,12 @@ strong a {
         height: 60px;
         @media(min-width:768px){
 	        height: 70px;
+			margin-top:10px;
         }
       }
 	}
 
-
-
+	
 	.navbar-toggle .icon-bar {
 	  	background-color: #000!important;
 	}
@@ -528,16 +555,27 @@ strong a {
 		}
 	}
 	.navbar-toggle {
+		@media(min-width:350px){
 		position: relative;
 		float: right;
-		padding: 9px 10px;
-		margin: 20px 15px;
+		margin: 20px 0px 0px 70px;
 		background-color: transparent;
 		background-image: none;
 		border: 1px solid #fff;
 		border-radius: 4px;
+		}
+		@media(min-width:100px){
+			position: relative;
+			float: right;
+			margin: 20px 0px 0px 0px;
+			background-color: transparent;
+			background-image: none;
+			border: 1px solid #fff;
+			border-radius: 4px;
+		
 	}
   }
+}
 
 #header .collapse {
 	@media(min-width:992px){
@@ -871,7 +909,11 @@ strong a {
 	}
 }
 
+
 .video-overlay {
+	display: none;
+	@media (min-width: 400px){
+	display: block;
     position: absolute;
     top: 0;
     left: 0;
@@ -881,6 +923,7 @@ strong a {
     height: 100%;
     background-color: rgba(0,0,0,0);
     z-index: 1;
+}
 }
 
 .video-wrapper {
@@ -892,9 +935,9 @@ strong a {
 	}
 	video {
 		display: block;
-		width: auto;
+		width: 100%;
 		height: 400px;
-		max-width: none;
+		max-width: 100%;
 		@media (min-width: 768px){
 			width: 100%;
 			height: auto;
@@ -916,6 +959,7 @@ strong a {
 .video-description{
 	position: relative;
 	padding: 30px 15px;
+	text-align: center;
 	@media (min-width: 768px){
 		position: absolute;
 		top: 50%;
@@ -928,13 +972,26 @@ strong a {
 			color: #000;
 		@media (min-width: 768px){
 		color: #fff;
+		font-size:40px;
+		text-transform: uppercase;
+		font-family: 'Raleway', sans-serif;
+		font-weight:200;
+	}
+		@media(min-width:1200px){
+		color: #fff;
 		font-size:80px;
 		text-transform: uppercase;
 	}
+		
 	}
 	h3{
 		color: #000;
 		@media (min-width: 768px){
+		color: #fff;
+		font-size:20px;
+		font-family: 'Raleway', sans-serif;
+		}
+		@media (min-width: 1200px){
 		color: #fff;
 		font-size:40px;
 		}
@@ -950,16 +1007,16 @@ strong a {
 /* Startpage */
 /* --------------------------------------------------------------------------------------------- */
 
-	.arrow-down {
-		display: none;
-		@media (min-width: 768){
+.arrow-down {
+	display: none;
+	@media (min-width: 990px){
 		position: absolute;
 		left: 50%;
 		bottom: 45px;
 		z-index: 2;
 		display: inline-block;
 		color:#fff;
-		padding: 5px 10px;
+		padding: 50px 10px;
 		-webkit-animation-delay: 4s;
 		-moz-animation-delay: 4s;
 		-o-animation-delay: 4s;
@@ -973,13 +1030,83 @@ strong a {
 		-o-animation-iteration-count: 2;
 		animation-iteration-count: 2;
 		@include transform(translate(-50%,0));
+		a{
+			color: #fff;
+		}
+		a:hover{
+			color: #000;
+		}
 	}
 }
 
-.row.row-3.middle-row{
-	margin:80px 0px 80px;
+@media (min-width: 768px){
+.row .info-boxes{
+	margin: 70px;
+}
 }
 
+	@media (min-width: 768px){
+	.text-field{
+	padding: 50px 50px;
+	}
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* Contact */
+/* --------------------------------------------------------------------------------------------- */
+
+.contact-form {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    overflow: auto;
+    max-width: 400px;
+    max-height: 80vh;
+    top: 100px;
+    right: -450px;
+    background-color: #fff;
+    padding: 45px;
+    cursor: pointer;
+    transition: all ease-in 0.5s;
+	border: 5px solid $primary-color;
+}
+
+.show-contact-form {
+    right: 0 !important;
+}
+
+@media (min-width: 768px)
+.contact-button {
+    top: 100px;
+}
+
+.contact-button-hide {
+    display: none;
+}
+.contact-button {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    z-index: 3;
+    background-color: $primary-color;
+    font-size: 14px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+	.fa{
+	color: #fff!important;
+	}
+}
+
+.contact-form .close-form {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.contact-form .close-form .fa {
+    font-size: 24px;
+}
 
 
 /* --------------------------------------------------------------------------------------------- */
@@ -1025,8 +1152,7 @@ strong a {
 }
 
 .footer-copyright {
-    background-color: #131313;
-    color: #fff;
+    background-color: #fff;
     overflow: hidden;
     font-size: 12px;
     padding-top: 15px;
