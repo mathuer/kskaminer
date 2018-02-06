@@ -1,23 +1,154 @@
-
-
 /* --------------------------------------------------------------------------------------------- */
 /* Variables */
 /* Här deklareras alla variabler */
 /* --------------------------------------------------------------------------------------------- */
+
 /* Colors */
+$primary-color: #6b4626;
+$secondary-color: #b2743f;
+$footer-color: #422a16;
+$text-color: #333;
+$title-color: #333;
+$link-color: #333;
+
 /* --------------------------------------------------------------------------------------------- */
 /* Media Queries */
 /* Detta är brytbunkterna i Bootstrap */
 /* --------------------------------------------------------------------------------------------- */
+
+@media(min-width:768px){
+	
+}
+
+@media(min-width:992px){
+	
+}
+
+@media(min-width:1200px){
+	
+}
+
+@media(min-width:1400x){
+	
+}
+
+
 /* --------------------------------------------------------------------------------------------- */
 /* Variables */
 /* Kopiera texten under för att använda mixins */
 /* --------------------------------------------------------------------------------------------- */
+
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
 /*	
 align-items: center;
 justify-content: center;
 @include flexbox(flex); 
 */
+
+@mixin background-size($size) {
+  -webkit-background-size: $size;
+     -moz-background-size: $size;
+       -o-background-size: $size;
+          background-size: $size;
+}
+
+// @include background-size(cover);
+
+@mixin box-sizing($content) {
+  -webkit-box-sizing: $content;
+     -moz-box-sizing: $content;
+       -o-box-sizing: $content;
+          box-sizing: $content;
+}
+
+// @include box-sizing(border-box);
+
+@mixin transition($content) {
+  -webkit-transition: $content;
+     -moz-transition: $content;
+      -ms-transition: $content;
+       -o-transition: $content;
+          transition: $content;
+}
+
+// @include transition(all 0.5s ease);
+
+@mixin transform($translate) {
+  -webkit-transform: $translate;
+     -moz-transform: $translate;
+      -ms-transform: $translate;
+       -o-transform: $translate;
+          transform: $translate;
+}
+
+// @include transform(translate(-50%,-50%));
+
+@mixin appearance($content) {
+  -webkit-appearance: $content;
+     -moz-appearance: $content;
+      -ms-appearance: $content;
+       -o-appearance: $content;
+          appearance: $content;
+}
+
+// @include appearance(none);
+
+@mixin filter($filter-type,$filter-amount) { 
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  	 -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+  	  -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+  	   -o-filter: $filter-type+unquote('(#{$filter-amount})');
+  	   	  filter: $filter-type+unquote('(#{$filter-amount})');
+}
+
+//  @include filter(brightness, 80%);
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+// @include border-radius(3px);
+
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+  -webkit-box-shadow: $top $left $blur $color #{$inset};
+     -moz-box-shadow: $top $left $blur $color #{$inset};
+          box-shadow: $top $left $blur $color #{$inset};
+}
+
+// @include box-shadow(0, 0, 20px, rgba(0,0,0,0.2));
+
+@mixin text-shadow($top, $left, $blur, $color, $inset:"") {
+  -webkit-text-shadow: $top $left $blur $color #{$inset};
+     -moz-text-shadow: $top $left $blur $color #{$inset};
+          text-shadow: $top $left $blur $color #{$inset};
+}
+
+// @include text-shadow(0, 0, 10px, rgba(0,0,0,0.5));
+
+@mixin font-smoothing($value: on) {
+	@if $value == on {
+	    -webkit-font-smoothing: antialiased;
+	    -moz-osx-font-smoothing: grayscale;
+	}
+	@else {
+	    -webkit-font-smoothing: subpixel-antialiased;
+	    -moz-osx-font-smoothing: auto;
+	}
+}
+
+// @include font-smoothing(on);
+
 /* --------------------------------------------------------------------------------------------- */
 /* Default layout */
 /* Detta ändrar globalt */
@@ -65,7 +196,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   margin-bottom: 15px;
   color: #333;
-  font-family: 'Lobster';
+  font-family: 'Playfair Display';
 }
 
 p {
@@ -1139,30 +1270,30 @@ strong a {
   right: 0 !important;
 }
 
-@media (min-width: 768px) {
-  .contact-button {
-    top: 100px;
-  }
-}
 
 .contact-button-hide {
   display: none;
 }
 
-.contact-button {
-  position: fixed;
-  top: 250px;
-  right: 10px;
-  z-index: 3;
-  background-color: #6b4626;
-  font-size: 14px;
-  padding: 20px;
-  cursor: pointer;
-  transition: all ease-in 0.3s;
-  .fa {
-    color: #fff !important;
+
+ .contact-button {
+	@media (min-width: 768px) {
+    top: 250px;
   }
-}
+	  position: fixed;
+	  top: 250px;
+	  right: 0px;
+	  z-index: 3;
+	  background-color: #6b4626;
+	  font-size: 14px;
+	  padding: 20px;
+	  cursor: pointer;
+	  transition: all ease-in 0.3s;
+	  .fa {
+		color: #fff !important;
+  		}
+	}
+
 
 .contact-form .close-form {
   position: absolute;
